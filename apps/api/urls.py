@@ -1,0 +1,92 @@
+from django.urls import path
+from rest_framework_simplejwt.views import TokenRefreshView
+
+from apps.api.views_auth import RegisterAPIView, LoginAPIView, ResetPasswordAPIView, MeAPIView
+from apps.api.views_flight import (
+    FlightOverviewAPIView,
+    FlightChartsAPIView,
+    FlightTrajectoryAPIView,
+    FlightRiskOverlimitAPIView,
+    FlightRiskOverlimitStreamByQarProxyAPIView,
+    FlightRiskOverlimitStreamProxyAPIView,
+    FlightReplayAPIView,
+)
+from apps.api.views_data import (
+    DataPreviewAPIView,
+    DataQarIdListAPIView,
+    DataQarManagementListAPIView,
+    DataUploadRawAPIView,
+    DataUploadFinalizeAPIView,
+    DataQarAPIView,
+    ParameterDimensionConfigAPIView,
+    ThresholdListAPIView,
+    DataImputationPreviewAPIView,
+    DataImputationRepairAPIView,
+    DataImputationRepairStreamByQarProxyAPIView,
+    DataImputationRepairStreamProxyAPIView,
+    DataImputationTrainAPIView,
+    DataImputationTrainHyperparamsProxyAPIView,
+    DataImputationModelsProxyAPIView,
+    DataImputationTrainStreamProxyAPIView,
+    DataImputationTrainStopProxyAPIView,
+)
+from apps.api.views_system import (
+    BackupJobStatusAPIView,
+    BackupListAPIView,
+    BackupPrecheckAPIView,
+    BackupRestoreAPIView,
+    BackupRunAPIView,
+    OpsLogAPIView,
+    SystemTestRunAPIView,
+    SystemTestStatusAPIView,
+    SystemTestMetricUpdateAPIView,
+    SystemTestUploadProbeAPIView,
+    SystemMetricsAPIView,
+)
+
+
+urlpatterns = [
+    path("auth/register", RegisterAPIView.as_view(), name="api_register"),
+    path("auth/login", LoginAPIView.as_view(), name="api_login"),
+    path("auth/reset-password", ResetPasswordAPIView.as_view(), name="api_reset_password"),
+    path("auth/refresh", TokenRefreshView.as_view(), name="api_token_refresh"),
+    path("auth/me", MeAPIView.as_view(), name="api_me"),
+
+    path("flight/overview", FlightOverviewAPIView.as_view(), name="api_flight_overview"),
+    path("flight/charts", FlightChartsAPIView.as_view(), name="api_flight_charts"),
+    path("flight/trajectory", FlightTrajectoryAPIView.as_view(), name="api_flight_trajectory"),
+    path("flight/replay", FlightReplayAPIView.as_view(), name="api_flight_replay"),
+    path("flight/risk/overlimit", FlightRiskOverlimitAPIView.as_view(), name="api_flight_risk_overlimit"),
+    path("flight/risk/overlimit/stream", FlightRiskOverlimitStreamProxyAPIView.as_view(), name="api_flight_risk_overlimit_stream"),
+    path("flight/risk/overlimit/stream/by-qar", FlightRiskOverlimitStreamByQarProxyAPIView.as_view(), name="api_flight_risk_overlimit_stream_by_qar"),
+
+    path("data/qar-ids", DataQarIdListAPIView.as_view(), name="api_data_qar_ids"),
+    path("data/qar-management", DataQarManagementListAPIView.as_view(), name="api_data_qar_management"),
+    path("data/preview", DataPreviewAPIView.as_view(), name="api_data_preview"),
+    path("data/upload-raw", DataUploadRawAPIView.as_view(), name="api_data_upload_raw"),
+    path("data/upload-raw/finalize", DataUploadFinalizeAPIView.as_view(), name="api_data_upload_raw_finalize"),
+    path("data/qar", DataQarAPIView.as_view(), name="api_data_qar"),
+    path("data/thresholds", ThresholdListAPIView.as_view(), name="api_data_thresholds"),
+    path("data/parameter-dimensions", ParameterDimensionConfigAPIView.as_view(), name="api_parameter_dimensions"),
+    path("data/imputation/preview", DataImputationPreviewAPIView.as_view(), name="api_data_imputation_preview"),
+    path("data/imputation/repair", DataImputationRepairAPIView.as_view(), name="api_data_imputation_repair"),
+    path("data/imputation/train/hyperparams", DataImputationTrainHyperparamsProxyAPIView.as_view(), name="api_data_imputation_train_hyperparams"),
+    path("data/imputation/models", DataImputationModelsProxyAPIView.as_view(), name="api_data_imputation_models"),
+    path("data/imputation/train", DataImputationTrainAPIView.as_view(), name="api_data_imputation_train"),
+    path("data/imputation/stream/train", DataImputationTrainStreamProxyAPIView.as_view(), name="api_data_imputation_stream_train"),
+    path("data/imputation/stream/train/stop", DataImputationTrainStopProxyAPIView.as_view(), name="api_data_imputation_stream_train_stop"),
+    path("data/imputation/stream/repair", DataImputationRepairStreamProxyAPIView.as_view(), name="api_data_imputation_stream_repair"),
+    path("data/imputation/stream/repair/by-qar", DataImputationRepairStreamByQarProxyAPIView.as_view(), name="api_data_imputation_stream_repair_by_qar"),
+
+    path("system/metrics", SystemMetricsAPIView.as_view(), name="api_system_metrics"),
+    path("system/backup/list", BackupListAPIView.as_view(), name="api_system_backup_list"),
+    path("system/backup/run", BackupRunAPIView.as_view(), name="api_system_backup_run"),
+    path("system/backup/job/status", BackupJobStatusAPIView.as_view(), name="api_system_backup_job_status"),
+    path("system/backup/precheck", BackupPrecheckAPIView.as_view(), name="api_system_backup_precheck"),
+    path("system/backup/restore", BackupRestoreAPIView.as_view(), name="api_system_backup_restore"),
+    path("system/ops/logs", OpsLogAPIView.as_view(), name="api_system_ops_logs"),
+    path("system/test/run", SystemTestRunAPIView.as_view(), name="api_system_test_run"),
+    path("system/test/status", SystemTestStatusAPIView.as_view(), name="api_system_test_status"),
+    path("system/test/metric/update", SystemTestMetricUpdateAPIView.as_view(), name="api_system_test_metric_update"),
+    path("system/test/upload-probe", SystemTestUploadProbeAPIView.as_view(), name="api_system_test_upload_probe"),
+]

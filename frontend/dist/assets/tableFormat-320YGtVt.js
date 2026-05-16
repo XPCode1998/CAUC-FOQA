@@ -1,0 +1,1 @@
+function o(n,f=4,r="-"){if(n==null||n==="")return r;if(typeof n=="number")return Number.isFinite(n)?n.toFixed(f):r;if(typeof n=="string"){const t=n.trim();if(!t)return r;const i=t.toLowerCase();if(i==="nan"||i==="inf"||i==="infinity"||i==="-inf"||i==="-infinity")return r;const e=Number(t);return Number.isFinite(e)?e.toFixed(f):n}return String(n)}export{o as f};

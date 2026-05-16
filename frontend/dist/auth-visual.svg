@@ -1,0 +1,41 @@
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CAUC FOQA auth visual">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#091328"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="runway" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00677D"/>
+      <stop offset="100%" stop-color="#72DEFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#bg)"/>
+  <circle cx="220" cy="180" r="180" fill="#72DEFF" opacity="0.08"/>
+  <circle cx="980" cy="980" r="220" fill="#2B77D2" opacity="0.12"/>
+  <circle cx="980" cy="220" r="90" fill="#72DEFF" opacity="0.2"/>
+
+  <g transform="translate(120, 160)">
+    <rect x="0" y="0" width="960" height="760" rx="30" fill="#0b1733" opacity="0.9"/>
+    <rect x="50" y="70" width="860" height="560" rx="24" fill="#091328"/>
+
+    <rect x="110" y="120" width="740" height="460" rx="20" fill="#0f1d3a"/>
+
+    <path d="M180 510 L770 190" stroke="url(#runway)" stroke-width="16" stroke-linecap="round" opacity="0.8"/>
+    <path d="M210 540 L800 220" stroke="#72DEFF" stroke-width="4" stroke-dasharray="10 12" opacity="0.75"/>
+
+    <g transform="translate(470, 320) rotate(-26)">
+      <path d="M-90 0 L80 0 L110 -10 L120 0 L110 10 L80 0 L-90 0 Z" fill="#72DEFF"/>
+      <path d="M-20 -65 L15 -10 L-10 -10 L-40 -65 Z" fill="#2B77D2"/>
+      <path d="M-20 65 L15 10 L-10 10 L-40 65 Z" fill="#2B77D2"/>
+      <circle cx="95" cy="0" r="7" fill="#00E5FF"/>
+    </g>
+
+    <rect x="110" y="670" width="740" height="110" rx="16" fill="#0f172a"/>
+    <rect x="150" y="705" width="220" height="12" rx="6" fill="#72DEFF" opacity="0.9"/>
+    <rect x="150" y="730" width="320" height="10" rx="5" fill="#3B494C"/>
+    <rect x="150" y="752" width="280" height="10" rx="5" fill="#3B494C"/>
+
+    <circle cx="900" cy="80" r="10" fill="#72DEFF"/>
+    <circle cx="930" cy="120" r="6" fill="#2B77D2"/>
+  </g>
+</svg>

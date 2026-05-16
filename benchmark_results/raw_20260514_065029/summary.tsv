@@ -1,0 +1,4 @@
+查询响应时间|PASS|< 3s|p95=0.034604s, non200=0, runs=20|count=20 min=0.023220 avg=0.026745 p95=0.034604 max=0.037316
+可视化响应时间|PASS|< 5s|p95=0.116819s, non200=0, runs=10|count=10 min=0.108465 avg=0.110575 p95=0.116819 max=0.116819
+上传速度|PASS|> 50 MB/s|avg=57.458888MB/s, success=3/3|count=3 min=55.932688 avg=57.458888 p95=59.977626 max=59.977626
+500M文件上传|PASS|约500MB文件可上传到后台(不入库)|http_success=1, generated=500.11MB, received=500.11MB|count=1 min=5.396500 avg=5.396500 p95=5.396500 max=5.396500
